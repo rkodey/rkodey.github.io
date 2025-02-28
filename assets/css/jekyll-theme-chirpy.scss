@@ -9,14 +9,17 @@
 
 /* append your custom style below */
 
-:root[data-mode="light"] {
-  --main-bg: green;
-}
+// :root[data-mode="light"] {
+//   --main-bg: green;
+// }
 
 :root[data-mode="dark"] {
-	background: #2a1e6b;
-	background: radial-gradient(circle, #2a1e6b 0%, #130e31 100%);
-  border-right: 1px solid #2b2b2b;
+  --main-bg: #1f1f1f;
+  --sidebar-bg: radial-gradient(circle, #2a1e6b 0%, #130e31 100%);
+  --sidebar-border-color: #2b2b2b;
+	// background: #2a1e6b;
+	// background: radial-gradient(circle, #2a1e6b 0%, #130e31 100%);
+  // border-right: 1px solid ;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -24,10 +27,16 @@
   // $sidebar-bg: #181818;
   // $sidebar-border-color: #2b2b2b;
 
-#sidebar {
-	background: #2a1e6b;
-	background: radial-gradient(circle, #2a1e6b 0%, #130e31 100%);
-  border-right: 1px solid #2b2b2b;
+:root:not([data-mode="light"]) {
+  --main-bg: #1f1f1f;
+  --sidebar-bg: radial-gradient(circle, #2a1e6b 0%, #130e31 100%);
+  --sidebar-border-color: #2b2b2b;
 }
+
+// #sidebar {
+// 	background: #2a1e6b;
+// 	background: radial-gradient(circle, #2a1e6b 0%, #130e31 100%);
+//   border-right: 1px solid #2b2b2b;
+// }
 
 }
