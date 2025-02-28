@@ -4,6 +4,7 @@ on:
     branches:
       - main
       - master
+      - initial-setup
     paths-ignore:
       - .gitignore
       - README.md
