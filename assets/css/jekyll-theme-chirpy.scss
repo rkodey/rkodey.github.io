@@ -1,0 +1,19 @@
+---
+---
+
+@use 'main
+{%- if jekyll.environment == 'production' -%}
+  .bundle
+{%- endif -%}
+';
+
+/* append your custom style below */
+
+#main-wrapper {
+  // background-color: #2a1e6b
+  background-color: #1f1f1f;
+}
+#sidebar {
+  // background-color: #2a1e6b
+  background-color: #181818;
+}
