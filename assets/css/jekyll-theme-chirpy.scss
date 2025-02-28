@@ -9,11 +9,8 @@
 
 /* append your custom style below */
 
-#main-wrapper {
-  // background-color: #2a1e6b
-  background-color: #1f1f1f;
-}
-#sidebar {
-  // background-color: #2a1e6b
-  background-color: #181818;
+:root[data-mode="dark"] {
+  --main-bg: #1f1f1f;
+  --sidebar-bg: #181818;
+  --sidebar-border-color: #2b2b2b;
 }
