@@ -25,6 +25,9 @@
 #sidebar .sidebar-bottom .icon-border {
   display: none;
 }
+#sidebar .sidebar-bottom #mode-toggle:not(:focus-visible), #sidebar .sidebar-bottom a:not(:focus-visible) {
+  box-shadow: var(--sidebar-border-color) 0 0 0 1.5px;
+}
 
 
 @mixin dark {
@@ -32,14 +35,25 @@
   --main-bg: #1f1f1f;
   --sidebar-bg: radial-gradient(circle, #006 20%, #003 100%);
   --sidebar-border-color: #666;
-  #sidebar .sidebar-bottom #mode-toggle:not(:focus-visible), #sidebar .sidebar-bottom a:not(:focus-visible) {
-    box-shadow: var(--sidebar-border-color) 0 0 0 1.5px;
+  --text-color: #ccc;
+  --topbar-bg: var(--main-bg);
+  search {
+    border: 1px solid var(--sidebar-border-color);
+    background: #313131;
   }
+}
+
+@mixin light {
+  --sidebar-bg: radial-gradient(circle, #DDF 20%, #BBF 100%);
 }
 
 
 @media (prefers-color-scheme: light) {
 
+
+  :root:not([data-mode="dark"]) {
+    @include light
+  }
   :root[data-mode="dark"] {
     @include dark
   }
@@ -50,6 +64,10 @@
 
   :root:not([data-mode="light"]) {
     @include dark
+  }
+
+  :root[data-mode="light"] {
+    @include light
   }
 
 }
