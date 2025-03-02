@@ -1,0 +1,5 @@
+
+# Override
+# https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/_data/locales/en.yml
+
+meta: Using the :THEME theme for :PLATFORM on <a href="https://pages.github.com/" target="_blank"><i class="fab fa-github"></i> GitHub Pages</a>.
