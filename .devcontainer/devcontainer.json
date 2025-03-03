@@ -1,6 +1,7 @@
 {
   "name": "Jekyll",
   "image": "mcr.microsoft.com/devcontainers/jekyll:2-bullseye",
+  "runArgs": ["--name", "Jekyll"],
   "onCreateCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
   "postCreateCommand": "bash .devcontainer/post-create.sh",
   "customizations": {
@@ -15,14 +16,18 @@
         "Shopify.theme-check-vscode",
         // Shell
         "timonwong.shellcheck",
-        "mkhl.shfmt",
+        // "mkhl.shfmt",
         // Common formatter
         "EditorConfig.EditorConfig",
-        "esbenp.prettier-vscode",
+        // "esbenp.prettier-vscode",
         "stylelint.vscode-stylelint",
         "yzhang.markdown-all-in-one",
         // Git
-        "mhutchie.git-graph"
+        "mhutchie.git-graph",
+        // My additions
+        "streetsidesoftware.code-spell-checker",
+        "geddski.macros",
+        "Gruntfuggly.todo-tree"
       ]
     }
   }

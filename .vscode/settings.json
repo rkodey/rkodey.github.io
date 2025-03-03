@@ -14,7 +14,7 @@
     "editor.defaultFormatter": "Shopify.theme-check-vscode"
   },
   "[shellscript]": {
-    "editor.defaultFormatter": "mkhl.shfmt"
+    // "editor.defaultFormatter": "mkhl.shfmt"
   },
   // Disable vscode built-in stylelint
   "css.validate": false,
@@ -28,11 +28,14 @@
     "zsh": { "path": "/bin/zsh", "args": ["-l", "-i"] }
   },
   "cSpell.ignorePaths": [
-    "*.yml",
+    "_*.yml",
     ".vscode",
+    "devcontainer.json",
     "NOTES.md",
   ],
   "cSpell.words": [
+    "Kodey",
+    "rkodey",
     "topbar"
   ]
 }
