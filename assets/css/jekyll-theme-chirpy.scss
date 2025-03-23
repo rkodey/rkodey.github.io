@@ -31,9 +31,51 @@
   box-shadow: var(--sidebar-border-color) 0 0 0 1.5px;
 }
 
+.btn, .btn.btn-outline-primary:not(.disabled):hover {
+  border: 1px solid var(--tag-border) !important;
+  box-shadow: 0 0 3px 0 var(--tag-shadow);
+}
+.btn:hover {
+  background-color: var(--tag-hover) !important;
+  // border-color: var(--tag-hover) !important;
+}
+.post-tags .post-tag, .tag {
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.post-tags .post-tag:hover, .tag:hover, #panel-wrapper .post-tag:hover, .post-preview::before {
+  background: var(--tag-hover);
+  transition: all .15s ease-in-out !important;
+}
+.post-tag {
+  color: var(--link-color);
+}
+header .post-meta em, header .post-meta time, .post-tail-wrapper .license-wrapper > a, footer a, footer em, #access-lastmod a {
+  color: var(--link-color);
+  font-weight: 600;
+  margin: 0 1px;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+#archives ul li:nth-child(2n+1) {
+  background-color: var(--main-bg);
+  background-image: none;
+}
+html:not([data-mode]) #archives li:nth-child(2n+1), html[data-mode="dark"] #archives li:nth-child(2n+1) {
+  background-image: none;
+}
+#page-category a:hover, #page-tag a:hover, #access-lastmod a:hover, .post-tail-wrapper .license-wrapper > a:hover, .post-tags .post-tag:hover, #search-results a:hover, footer a:hover, #topbar #breadcrumb a:hover, .post-meta a:not([class]):hover, .content a:not(.img-link):hover {
+  border-bottom: 0;
+  text-decoration: none;
+  transition: all .15s ease-in-out !important;
+}
+.post-preview:hover::before {
+	opacity: .4;
+}
+
 
 @mixin dark {
   --avatar-border-color: #ccc;
+  --text-muted-color: #aaa;
+  --text-muted-highlight-color: #ccc;
   --main-bg: #1f1f1f;
   --sidebar-bg: radial-gradient(circle, #006 20%, #003 100%);
   --sidebar-border-color: #666;
@@ -43,10 +85,25 @@
     border: 1px solid var(--sidebar-border-color);
     background: #313131;
   }
+
+  .btn:hover {
+    color: #fff !important;
+  }
+  #page-category a:hover, #page-tag a:hover, #access-lastmod a:hover, .post-tail-wrapper .license-wrapper > a:hover, .post-tags .post-tag:hover, #search-results a:hover, footer a:hover, #topbar #breadcrumb a:hover, .post-meta a:not([class]):hover, .content a:not(.img-link):hover {
+    color: #fff !important;
+  }
 }
 
 @mixin light {
   --sidebar-bg: radial-gradient(circle, #DDF 20%, #BBF 100%);
+  --sidebar-hover-bg: #ccc;
+
+  .btn:hover {
+    color: #d2603a !important;
+  }
+  #page-category a:hover, #page-tag a:hover, #access-lastmod a:hover, .post-tail-wrapper .license-wrapper > a:hover, .post-tags .post-tag:hover, #search-results a:hover, footer a:hover, #topbar #breadcrumb a:hover, .post-meta a:not([class]):hover, .content a:not(.img-link):hover {
+    color: #d2603a !important;
+  }
 }
 
 
