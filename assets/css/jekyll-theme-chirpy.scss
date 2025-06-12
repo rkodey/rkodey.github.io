@@ -30,21 +30,27 @@
 #sidebar .sidebar-bottom #mode-toggle:not(:focus-visible), #sidebar .sidebar-bottom a:not(:focus-visible) {
   box-shadow: var(--sidebar-border-color) 0 0 0 1.5px;
 }
+#sidebar .sidebar-bottom #mode-toggle:hover, #sidebar .sidebar-bottom a:hover, #sidebar .site-title:hover {
+	color: var(--sidebar-active-color);
+}
 
 .btn, .btn.btn-outline-primary:not(.disabled):hover {
-  border: 1px solid var(--tag-border) !important;
+  // border: 1px solid var(--tag-border) !important;
   box-shadow: 0 0 3px 0 var(--tag-shadow);
 }
 .btn:hover {
   background-color: var(--tag-hover) !important;
-  // border-color: var(--tag-hover) !important;
+  color: #fff !important;
 }
 .post-tags .post-tag, .tag {
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: all .15s ease-in-out;
 }
 .post-tags .post-tag:hover, .tag:hover, #panel-wrapper .post-tag:hover, .post-preview::before {
   background: var(--tag-hover);
-  transition: all .15s ease-in-out !important;
+  transition: all .15s ease-in-out;
+}
+#post-list .card .card-body .card-title, #post-list .card .card-body .card-text.content, #post-list .card .card-body .post-meta {
+  transition: all .15s ease-in-out;
 }
 .post-tag {
   color: var(--link-color);
@@ -53,7 +59,7 @@ header .post-meta em, header .post-meta time, .post-tail-wrapper .license-wrappe
   color: var(--link-color);
   font-weight: 600;
   margin: 0 1px;
-  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  transition: all .15s ease-in-out;
 }
 #archives ul li:nth-child(2n+1) {
   background-color: var(--main-bg);
@@ -65,42 +71,57 @@ html:not([data-mode]) #archives li:nth-child(2n+1), html[data-mode="dark"] #arch
 #page-category a:hover, #page-tag a:hover, #access-lastmod a:hover, .post-tail-wrapper .license-wrapper > a:hover, .post-tags .post-tag:hover, #search-results a:hover, footer a:hover, #topbar #breadcrumb a:hover, .post-meta a:not([class]):hover, .content a:not(.img-link):hover {
   border-bottom: 0;
   text-decoration: none;
-  transition: all .15s ease-in-out !important;
+  transition: all .15s ease-in-out;
 }
-.post-preview:hover::before {
-	opacity: .4;
+.post-preview:hover::before, .tag:hover {
+	opacity: 1;
+}
+.post-preview, .nav-link, #sidebar .profile-wrapper, #sidebar .site-title, #sidebar .sidebar-bottom a {
+	transition: all .15s ease-in-out;
 }
 
+
+@mixin common {
+  --site-title-color: #ccc;
+  --site-subtitle-color: #ccc;
+  --avatar-border-color: #ccc;
+  --sidebar-muted-color: #ccc;
+  --sidebar-active-color: #fff;
+  --sidebar-hover-bg: #222;
+  --sidebar-btn-bg: #222;
+  --sidebar-btn-color: #888;
+  --sidebar-bg: #006 radial-gradient(circle, #006 50%, #003 100%);
+  --sidebar-border-color: #666;
+  search {
+    border: 1px solid var(--sidebar-border-color);
+  }
+}
 
 @mixin dark {
-  --avatar-border-color: #ccc;
   --text-muted-color: #aaa;
   --text-muted-highlight-color: #ccc;
   --main-bg: #1f1f1f;
-  --sidebar-bg: radial-gradient(circle, #006 20%, #003 100%);
-  --sidebar-border-color: #666;
   --text-color: #ccc;
   --topbar-bg: var(--main-bg);
+  --tag-hover: radial-gradient(circle, #0000FF22 50%, #00009922 100%);
   search {
-    border: 1px solid var(--sidebar-border-color);
     background: #313131;
   }
 
-  .btn:hover {
-    color: #fff !important;
-  }
-  #page-category a:hover, #page-tag a:hover, #access-lastmod a:hover, .post-tail-wrapper .license-wrapper > a:hover, .post-tags .post-tag:hover, #search-results a:hover, footer a:hover, #topbar #breadcrumb a:hover, .post-meta a:not([class]):hover, .content a:not(.img-link):hover {
+  #post-list .card:hover .card-body .card-title,
+  #post-list .card:hover .card-body .card-text.content,
+  #post-list .card:hover .card-body .post-meta,
+  // #post-list .card .post-preview:hover .card-body .post-meta,
+  {
     color: #fff !important;
   }
 }
 
 @mixin light {
-  --sidebar-bg: radial-gradient(circle, #DDF 20%, #BBF 100%);
-  --sidebar-hover-bg: #ccc;
+  // --sidebar-bg: #DDF radial-gradient(circle, #EEF 50%, #CCF 100%);
+  --tag-hover: radial-gradient(circle, #AAAAFF22 50%, #6666FF22 100%);
+  // --sidebar-hover-bg: #ccc;
 
-  .btn:hover {
-    color: #d2603a !important;
-  }
   #page-category a:hover, #page-tag a:hover, #access-lastmod a:hover, .post-tail-wrapper .license-wrapper > a:hover, .post-tags .post-tag:hover, #search-results a:hover, footer a:hover, #topbar #breadcrumb a:hover, .post-meta a:not([class]):hover, .content a:not(.img-link):hover {
     color: #d2603a !important;
   }
@@ -111,10 +132,12 @@ html:not([data-mode]) #archives li:nth-child(2n+1), html[data-mode="dark"] #arch
 
 
   :root:not([data-mode="dark"]) {
-    @include light
+    @include light;
+    @include common;
   }
   :root[data-mode="dark"] {
-    @include dark
+    @include dark;
+    @include common;
   }
 
 }
@@ -122,11 +145,13 @@ html:not([data-mode]) #archives li:nth-child(2n+1), html[data-mode="dark"] #arch
 @media (prefers-color-scheme: dark) {
 
   :root:not([data-mode="light"]) {
-    @include dark
+    @include dark;
+    @include common;
   }
 
   :root[data-mode="light"] {
-    @include light
+    @include light;
+    @include common;
   }
 
 }
